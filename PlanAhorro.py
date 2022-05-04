@@ -3,16 +3,15 @@ class PlanAhorro:
     __modelo = ""
     __version = ""
     __valor = 0
-    __cantCuotas = 0
-    __cantCuotaspag = 0
+    cantCuotas = 60
+    cantCuotaspag = 10
 
-    def __init__(self, codigo, modelo, version, valor, cantCuotas, cantCuotaspag):
+    def __init__(self, codigo, modelo, version, valor):
         self.__codigo = codigo
         self.__modelo = modelo
         self.__version = version
         self.__valor = valor
-        self.__cantCuotas = cantCuotas
-        self.__cantCuotaspag = cantCuotaspag
+
     
     def __str__(self):
         print("Codigo: {}\nModelo: {}\nVersion: {}\nValor: {}\nCantidad de cuotas: {}\nCantidad de cuotas pagadas: {}".format(self.__codigo, self.__modelo, self.__version, self.__valor, self.__cantCuotas, self.__cantCuotaspag))
@@ -23,4 +22,30 @@ class PlanAhorro:
     def getModelo(self):
         return self.__modelo
     
+    def getVersion(self):
+        return self.__version
+    
+    def getValor(self):
+        return self.__valor
+    
+    def modificarValor(self,val):
+        self.__valor = val
+        return 
+    
+    @classmethod
+    def retornaCuotas(cls):
+        return cls.cantCuotas
+    
+    @classmethod
+    def retornarCuotasLicitar(cls):
+        return cls.cantCuotaspag
+
+    @classmethod
+    def modificarCuotasLicitar(cls,cuotas):
+        cls.cantCuotaspag =  cuotas
+        print("Cambio realizado con exito")
+        return
+    @classmethod
+    def mostrarCuotasLicitar(cls):
+        return print("Cuotas necesarias para licitar el vehiculo: {}".format(cls.cantCuotasLicitar))
     
