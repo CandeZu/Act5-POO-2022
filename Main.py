@@ -1,4 +1,5 @@
 from Manejador import Manejador
+from PlanAhorro import PlanAhorro
 import os
 
 if __name__ == "__main__":
@@ -21,14 +22,13 @@ if __name__ == "__main__":
         if ( op == 1):
             print("".center(20,"-"))
             ValorNuevo = float(input("Ingrese valor actualizado del vehiculo\n"))
-            print(m.opcion1(ValorNuevo))
+            m.opcion1(ValorNuevo)
         elif(op == 2):
-            print("Ingrese valor de vehículo: ")
+            print("Ingrese valor: ")
             valor = int(input())
-            print(m.opcion2(valor))
+            m.opcion2(valor)
         elif(op == 3):
-            print("Monto que se debe pagar para poder licitar un vehículo: ")
-            print(m.opcion3())
+            m.opcion3()
         elif(op == 4):
             print("Ingrese el código del plan a modificar: ")
             codigo = int(input())
@@ -37,20 +37,3 @@ if __name__ == "__main__":
             m.opcion4(codigo, cantCuotas)
         elif(op == 0):
             continuar = not continuar
-    
-
-    @classmethod
-    def getOp1(cls):
-        return cls.ActualizarValor
-    @classmethod
-    def getOp2(cls):
-        return cls.CuotasMenores
-    @classmethod
-    def getOp3(cls):
-        return cls.MontoLicitar
-    @classmethod
-    def getOp4(cls):
-        return cls.ModCantCuotas
-    @classmethod
-    def getSalir(cls):
-        return cls.Salir
